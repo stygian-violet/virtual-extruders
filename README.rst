@@ -29,7 +29,7 @@ Installation
 Pip
 ^^^
 
-.. code-block:: console
+.. code-block:: bash
 
     pip install virtual-extruders
 
@@ -40,7 +40,7 @@ Copy `virtual_extruders.py
 <https://github.com/stygian-violet/virtual-extruders/blob/master/virtual_extruders.py>`__
 to any directory and make it executable.
 
-.. code-block:: console
+.. code-block:: bash
 
     install -m755 -D -t ~/.config/PrusaSlicer/scripts virtual_extruders.py
 
@@ -54,7 +54,7 @@ The command-line interface can be used
 with ``virtual-extruders`` if it was installed with a package manager
 or with ``/path/to/virtual_extruders.py`` otherwise.
 
-::
+.. code-block:: console
 
     > ./virtual_extruders.py -h
     usage: virtual_extruders.py [-h] [-V] [-i] [-f] [-g GCODE [GCODE ...]] file
@@ -79,7 +79,7 @@ To use this program as a post-processing script in PrusaSlicer,
 add the following line to the **Post-processing scripts** parameter
 in **Print Settings** → **Output options**:
 
-.. code-block:: console
+.. code-block:: bash
 
     virtual-extruders -i -f
 
@@ -93,7 +93,7 @@ Development
 Installation
 ^^^^^^^^^^^^
 
-.. code-block:: console
+.. code-block:: bash
 
     python -m venv env
     source env/bin/activate
@@ -102,28 +102,28 @@ Installation
 Building
 ^^^^^^^^
 
-.. code-block:: console
+.. code-block:: bash
 
     python -m build
 
 Testing
 ^^^^^^^
 
-.. code-block:: console
+.. code-block:: bash
 
     coverage run && coverage report
 
 Linting
 ^^^^^^^
 
-.. code-block:: console
+.. code-block:: bash
 
     ruff check && mypy
 
 Uploading
 ^^^^^^^^^
 
-.. code-block:: console
+.. code-block:: bash
 
     twine upload dist/*
 
