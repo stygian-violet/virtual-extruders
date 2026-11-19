@@ -1,0 +1,114 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "virtual-extruders"
+dynamic = ["version"]
+description = "A CLI tool to convert multi-extruder 3D printer G-code to single extruder."
+readme = "README.rst"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+keywords = []
+authors = [
+  { name = "stygian-violet", email = "stygianviol3t@proton.me" }
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Manufacturing",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: File Formats",
+  "Topic :: Printing",
+  "Topic :: Utilities"
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/stygian-violet/virtual-extruders"
+Source = "https://github.com/stygian-violet/virtual-extruders"
+Issues = "https://github.com/stygian-violet/virtual-extruders/issues"
+
+[project.scripts]
+virtual-extruders = "virtual_extruders:main"
+
+[dependency-groups]
+dev = [
+  "build",
+  "coverage",
+  "mypy",
+  "pytest",
+  "ruff",
+  "twine"
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "virtual_extruders.__version__"}
+
+[tool.coverage.run]
+command_line = "-m pytest"
+source_pkgs = ["virtual_extruders", "tests"]
+branch = true
+parallel = true
+omit = [
+  "**/tests/**/*",
+  "**/__about__.py"
+]
+
+[tool.coverage.paths]
+virtual_extruders = ["virtual_extruders.py"]
+tests = ["tests"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:"
+]
+
+[tool.mypy]
+disallow_untyped_defs = true
+enable_error_code = [ "ignore-without-code" ]
+files = [
+  "*.py",
+  "tests/**/*.py"
+]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.format]
+preview = true
+quote-style = "single"
+
+[tool.ruff.lint]
+preview = true
+ignore = [
+  "E741",
+  "EM101",
+  "EM102",
+  "PLW0108",
+  "TID252",
+  "TRY003"
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*" = [
+  "ARG001",
+  "N803",
+  "N814",
+  "N817",
+  "S101"
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
