@@ -9,7 +9,7 @@ from contextlib import contextmanager
 from typing import Any, NamedTuple, TextIO
 
 __appname__ = 'virtual-extruders'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 NAME_VERSION = f'{__appname__} {__version__}'
 
